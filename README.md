@@ -21,12 +21,12 @@
  -  Liveness 
  -  Key 
  -  Acousticness
- ![](/home/meenu/Pictures/data.png "Optional title")
+ ![](images/data.png "Optional title")
 
  ### Models :
 - **Nearest Neighbour based approach** :This is our baseline approach. We used song to song similarity here. Initailly, in the dataset, we performed PCA with eight components as that was needed for retaining 95% variance. After PCA, we used cosine similarity as the metric on the numeric features.For a given set of tracks, we generated the recommended tracks as the ones having the highest cosine similarity value.In order to inject some randomness in the recommendation, for every set of recommended tracks we added a track randomly without bothering about the cosine similarity values. This increases the diversity of our recommendation.
 
-![](/home/meenu/Pictures/pca.png "PCA ")
+![](images/pca.png "PCA ")
 
 
 

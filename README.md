@@ -1,5 +1,4 @@
-# BUILDING RECOMMENDATION SYSTEM FOR SPOTIFY PLAYLIST
-
+# Building Recommendation System for Spotify
  ## Objective :
   Given a playlist of Spotify tracks, our objective is to build a recommendation system that is be able to recommend a list of tracks that would constitue an appropriate extension of the playlist.
 

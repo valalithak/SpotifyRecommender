@@ -30,11 +30,6 @@ This is our baseline approach. We used song to song similarity here. Initailly, 
 1. Doesn't take into account the features like artist name, album name etc. which when considered, would produce better recommendations.
 2. Scalability becomes difficult as we need to calculate distance to every other track for each new input track given.
 
-![](images/pca.png "PCA ")
-
-
-
-
  ### Basic Neural Collaborative Filtering based approach :
  Since we did not look into playlist based information in KNN, we generate a sparse matrix  where rows are playlists and coloumns are ids of unique songs in the data .A cell in a matrix is marked 1 is the song is present in playlist else 0 . From this sparse matrix ,training samples for the network are generated are as follows playlist id , song id , label(0/1) .We add an MLP layer, a GMF (Generalised Matrix Factorisation) layer and a fusion layer that concatenated  these.
  

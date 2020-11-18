@@ -114,12 +114,37 @@ if len(similar_song_ids) == 0:
   for song in most_popular:
     output_list_2.append(song)
 
+final_list = list(set(output_list_1 + output_list_2))
 
+song_name = input_song_names[0]
+rows = train.loc[train['track_name'] == song_name]
+try:
+  song_artist = rows['artist_name'].to_list()[0]
+  song_album =rows['album_name'].to_list()[0]  
+  artist = song_artist.split("&")[-1].strip()
+  # print(song_album)
+  # print(artist)
+  rows2 = train.loc[train['artist_name'] == artist]
+  rows3 = train.loc[train['album_name'] == song_album]
+  songs1 = rows2['track_name'].to_list()
+  songs2 = rows3['track_name'].to_list()
+  # print(songs)
+  for song in songs1:
+    if song != song_name:
+      final_list.append(song)
+      break
+  for song in songs2:
+    if song != song_name:
+      final_list.append(song)
+      break
+except:
+  pass
 """Final step: Combine both recommendations given by Artist and Playlist based representations"""
 f = open('output.txt','w')
-n1 = int(len(output_list_1)/2)-1
-n2 = int(len(output_list_2)/2)-1
-final_list = output_list_1[0:n1] + output_list_2[0:n2]
+# n1 = int(len(output_list_1)/2)-1
+# n2 = int(len(output_list_2)/2)-1
+
+final_list.sort()
 for song in final_list:
   print(song)
   song = song + '\n'

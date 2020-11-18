@@ -36,7 +36,7 @@ This is our baseline approach. We used song to song similarity here. Initailly, 
 
 
 
- ### Collaborative Filtering based approach :
+ ### Basic Neural Collaborative Filtering based approach :
  Since we did not look into playlist based information in KNN, we generate a sparse matrix  where rows are playlists and coloumns are ids of unique songs in the data .A cell in a matrix is marked 1 is the song is present in playlist else 0 . From this sparse matrix ,training samples for the network are generated are as follows playlist id , song id , label(0/1) .We add an MLP layer, a GMF (Generalised Matrix Factorisation) layer and a fusion layer that concatenated  these.
  
 
@@ -44,7 +44,7 @@ This is our baseline approach. We used song to song similarity here. Initailly, 
 1. Poor scalability.
 2. Only based on Playlist-Song matrix. Doesnt consider the artist-song features. 
 
-### Neural Collaborative Filtering
+### Final Neural Collaborative Filtering
 Out of the previous two models, we found the CF based approach better and decided to improve upon that. In the Baseline Collaborative Filtering model we only have onehot vectors for each song . Here , we initialised the SongsEmbedding matrix in neural network with features from Spotify.The use of sparse matrix in the baseline CF model provided poor scalability.Since we use vector representaion for songs here (including the features from Spotify API), this model is scalable.Also, we train SongsEmbedding with respect to artists .So,the final recommendations are based on  ensemble of vector respresentations obtained from Playlist-Song training and Artist-Song Training.Along with that, we also introduce negative sampling to reduce computational overhead.
 
  ## Evaluation metric : 

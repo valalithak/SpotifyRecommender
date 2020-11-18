@@ -1,0 +1,73 @@
+<html>
+	<style type="text/css">
+		input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: skyblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: blue;
+}
+
+div {
+	width: 80%;
+	text-align: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  opacity: 1
+}
+h1 {text-align: center;}
+.div1
+{
+text-align: center;
+margin-left :auto;
+margin-right :auto;
+}
+body
+{
+	  background-image: url("static/spotify.png");
+	  background-repeat: no-repeat;
+	  background-attachment: fixed;
+}
+</style>
+<body>
+  <form action = "http://localhost:5555/" method = "post">
+  	<p><br><h1 style="color: white">Spotify Recommendation System</h1></p>
+  	<div class="div1">
+     <p>Enter Song Detail:- </p>
+     <p><input id="song" type = "text" name = "song" /></p>
+     <p><input type = "submit" value = "Submit" /></p>
+ </div>
+  </form>
+  {% if song %}
+  <div class="div1">
+  	<h3>Recommended playlist</h3>
+    <ul>
+    {% for user in song %}
+      <li>
+          {{ user }} {{loop.counter}}
+    {% endfor %}
+    </ul>
+  </div>
+  <br>
+  {% endif %}
+
+</body>
+</html>
